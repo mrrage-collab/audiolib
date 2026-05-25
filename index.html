@@ -16,7 +16,6 @@
     .title{font-size:1.2rem;margin-bottom:6px;color:#fff;font-weight:700}
     .meta{color:#aaa;font-size:0.9rem;margin-bottom:12px}
     audio{width:100%;max-width:500px;background:#111;border-radius:6px;border:1px solid #333}
-    audio::-webkit-media-controls-panel{background:#1a1a1a}
     .note{text-align:center;color:#777;font-size:0.85rem;margin-top:30px;padding-top:20px;border-top:1px solid #222}
     .badge{display:inline-block;padding:3px 10px;background:rgba(34,197,94,0.15);color:#22c55e;border-radius:20px;font-size:0.75rem;font-weight:600;margin-bottom:10px}
     @media(max-width:600px){.book{flex-direction:column;text-align:center}.cover{width:100%;height:180px}.info{min-width:100%}}
@@ -26,66 +25,66 @@
   <div class="container">
     <h1>🎧 АУДИБИБЛИОТЕКА</h1>
     
-    <!-- Книга 1 -->
+    <!-- Книга 1: Пушкин - Дубровский (ПРЯМАЯ ССЫЛКА, HTTPS) -->
     <div class="book">
       <div class="cover">📚</div>
       <div class="info">
         <span class="badge">RU • Радио</span>
         <div class="title">Дубровский</div>
-        <div class="meta">А.С. Пушкин • ~2 ч 17 мин • Читает: Вс. Аксёнов (1946)</div>
-        <audio controls preload="metadata" data-id="dubrovsky">
-          <source src="https://web.archive.org/web/2id_/http://oldradio.ru:80/data/mp3/pushkin-dubrovskiy-1946/pushkin-dubrovskiy-1946-01.mp3" type="audio/mpeg">
+        <div class="meta">А.С. Пушкин • ~2 ч 17 мин • Читает: Вс. Аксёнов</div>
+        <audio controls preload="metadata">
+          <source src="https://ia801409.us.archive.org/28/items/pushkin-dubrovskiy-1946/pushkin-dubrovskiy-1946-01.mp3" type="audio/mpeg">
         </audio>
       </div>
     </div>
 
-    <!-- Книга 2 -->
+    <!-- Книга 2: Гоголь - Мёртвые души (ПРЯМАЯ ССЫЛКА, HTTPS) -->
     <div class="book">
       <div class="cover">🎭</div>
       <div class="info">
         <span class="badge">RU • Радио</span>
         <div class="title">Мёртвые души</div>
         <div class="meta">Н.В. Гоголь • ~4 ч • Радиоспектакль, 1959</div>
-        <audio controls preload="metadata" data-id="mertvye">
-          <source src="https://web.archive.org/web/2id_/http://oldradio.ru:80/data/mp3/gogol-mertvye-dushi-1959/gogol-mertvye-dushi-1959-01.mp3" type="audio/mpeg">
+        <audio controls preload="metadata">
+          <source src="https://ia801403.us.archive.org/11/items/gogol-mertvye-dushi-1959/gogol-mertvye-dushi-1959-01.mp3" type="audio/mpeg">
         </audio>
       </div>
     </div>
 
-    <!-- Книга 3 -->
+    <!-- Книга 3: Русские сказки (ПРЯМАЯ ССЫЛКА, HTTPS) -->
     <div class="book">
       <div class="cover">🧚</div>
       <div class="info">
         <span class="badge">RU • Сказки</span>
         <div class="title">Русские народные сказки</div>
         <div class="meta">Сборник • ~6 ч • Читает: Анатолий Иванов</div>
-        <audio controls preload="metadata" data-id="skazki">
-          <source src="https://web.archive.org/web/2id_/http://oldradio.ru:80/data/mp3/skazki-ivanov/skazki-ivanov-01.mp3" type="audio/mpeg">
+        <audio controls preload="metadata">
+          <source src="https://ia800607.us.archive.org/3/items/skazki-ivanov/skazki-ivanov-01.mp3" type="audio/mpeg">
         </audio>
       </div>
     </div>
 
-    <!-- Книга 4 -->
+    <!-- Книга 4: Достоевский - Записки из подполья -->
     <div class="book">
       <div class="cover">📖</div>
       <div class="info">
         <span class="badge">RU • Классика</span>
         <div class="title">Записки из подполья</div>
-        <div class="meta">Ф.М. Достоевский • ~1 ч 45 мин • Читает: LibriVox RU</div>
-        <audio controls preload="metadata" data-id="podpolye">
+        <div class="meta">Ф.М. Достоевский • ~1 ч 45 мин</div>
+        <audio controls preload="metadata">
           <source src="https://archive.org/download/zapiski_iz_podpolya_librivox/zapiski_01_dostoevsky_64kb.mp3" type="audio/mpeg">
         </audio>
       </div>
     </div>
 
-    <!-- Книга 5 -->
+    <!-- Книга 5: Шерлок Холмс -->
     <div class="book">
       <div class="cover">🎬</div>
       <div class="info">
         <span class="badge">RU • Детектив</span>
         <div class="title">Приключения Шерлока Холмса</div>
         <div class="meta">А.Конан Дойл • ~8 ч • Читает: Игорь Князев</div>
-        <audio controls preload="metadata" data-id="holms">
+        <audio controls preload="metadata">
           <source src="https://archive.org/download/sherlock_holmes_ru_librivox/sherlock_01_doyle_64kb.mp3" type="audio/mpeg">
         </audio>
       </div>
@@ -95,18 +94,18 @@
   </div>
 
   <script>
-    // Сохранение прогресса воспроизведения (локально в браузере)
+    // Простое сохранение прогресса (работает даже если браузер строгий)
     document.addEventListener('DOMContentLoaded', function(){
       var audios = document.querySelectorAll('audio');
-      audios.forEach(function(audio){
-        var id = audio.getAttribute('data-id');
-        if(!id) return;
-        var saved = localStorage.getItem('audiolib_' + id);
-        if(saved) audio.currentTime = parseFloat(saved);
-        
-        audio.addEventListener('timeupdate', function(){
-          localStorage.setItem('audiolib_' + id, audio.currentTime);
-        });
+      audios.forEach(function(audio, idx){
+        var key = 'al_' + idx;
+        try {
+          var saved = localStorage.getItem(key);
+          if(saved) audio.currentTime = parseFloat(saved);
+          audio.addEventListener('timeupdate', function(){
+            localStorage.setItem(key, audio.currentTime);
+          });
+        } catch(e) { /* игнорируем ошибки хранилища */ }
       });
     });
   </script>
