@@ -9,8 +9,7 @@
     body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#050505;color:#f5f5f5;line-height:1.6;padding:20px;min-height:100vh}
     .container{max-width:900px;margin:0 auto}
     h1{text-align:center;margin-bottom:25px;padding-bottom:15px;border-bottom:2px solid #e63946;color:#fff;font-size:1.8rem;letter-spacing:2px}
-    .book{background:linear-gradient(145deg,#0f0f0f,#161616);border:1px solid #333;border-radius:12px;padding:18px;margin-bottom:20px;display:flex;gap:15px;align-items:flex-start;flex-wrap:wrap;transition:transform .2s,border-color .2s}
-    .book:hover{transform:translateY(-3px);border-color:#ff1a1a;box-shadow:0 8px 25px rgba(230,57,70,0.15)}
+    .book{background:linear-gradient(145deg,#0f0f0f,#161616);border:1px solid #333;border-radius:12px;padding:18px;margin-bottom:20px;display:flex;gap:15px;align-items:flex-start;flex-wrap:wrap}
     .cover{width:90px;height:130px;background:linear-gradient(135deg,#1a0000,#3a0000);border:1px solid #ff1a1a;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;color:rgba(240,240,240,0.1);flex-shrink:0}
     .info{flex:1;min-width:220px}
     .title{font-size:1.2rem;margin-bottom:6px;color:#fff;font-weight:700}
@@ -18,6 +17,8 @@
     audio{width:100%;max-width:500px;background:#111;border-radius:6px;border:1px solid #333}
     .note{text-align:center;color:#777;font-size:0.85rem;margin-top:30px;padding-top:20px;border-top:1px solid #222}
     .badge{display:inline-block;padding:3px 10px;background:rgba(34,197,94,0.15);color:#22c55e;border-radius:20px;font-size:0.75rem;font-weight:600;margin-bottom:10px}
+    .fallback-link{display:none;margin-top:8px;color:#e63946;text-decoration:none;font-size:0.9rem}
+    .fallback-link:hover{text-decoration:underline}
     @media(max-width:600px){.book{flex-direction:column;text-align:center}.cover{width:100%;height:180px}.info{min-width:100%}}
   </style>
 </head>
@@ -25,88 +26,57 @@
   <div class="container">
     <h1>🎧 АУДИБИБЛИОТЕКА</h1>
     
-    <!-- Книга 1: Пушкин - Дубровский (ПРЯМАЯ ССЫЛКА, HTTPS) -->
+    <!-- 1. ТЕСТ (100% РАБОЧИЙ ФАЙЛ) -->
+    <div class="book">
+      <div class="cover">🔊</div>
+      <div class="info">
+        <span class="badge">✅ ТЕСТ ПЛЕЕРА</span>
+        <div class="title">Проверка воспроизведения</div>
+        <div class="meta">Если этот играет → проблема только в ссылках на книги</div>
+        <audio controls preload="none">
+          <source src="https://archive.org/download/testmp3testfile/mpthreetest.mp3" type="audio/mpeg">
+        </audio>
+        <a class="fallback-link" href="#" target="_blank">⚠️ Не грузится? Открыть файл напрямую</a>
+      </div>
+    </div>
+
+    <!-- 2. Пушкин - Дубровский -->
     <div class="book">
       <div class="cover">📚</div>
       <div class="info">
         <span class="badge">RU • Радио</span>
         <div class="title">Дубровский</div>
         <div class="meta">А.С. Пушкин • ~2 ч 17 мин • Читает: Вс. Аксёнов</div>
-        <audio controls preload="metadata">
-          <source src="https://ia801409.us.archive.org/28/items/pushkin-dubrovskiy-1946/pushkin-dubrovskiy-1946-01.mp3" type="audio/mpeg">
+        <audio controls preload="none">
+          <source src="https://archive.org/download/pushkin-dubrovskiy-1946/pushkin-dubrovskiy-1946-01.mp3" type="audio/mpeg">
         </audio>
+        <a class="fallback-link" href="#" target="_blank">⚠️ Не грузится? Открыть файл напрямую</a>
       </div>
     </div>
 
-    <!-- Книга 2: Гоголь - Мёртвые души (ПРЯМАЯ ССЫЛКА, HTTPS) -->
+    <!-- 3. Гоголь - Мёртвые души -->
     <div class="book">
       <div class="cover">🎭</div>
       <div class="info">
         <span class="badge">RU • Радио</span>
         <div class="title">Мёртвые души</div>
         <div class="meta">Н.В. Гоголь • ~4 ч • Радиоспектакль, 1959</div>
-        <audio controls preload="metadata">
-          <source src="https://ia801403.us.archive.org/11/items/gogol-mertvye-dushi-1959/gogol-mertvye-dushi-1959-01.mp3" type="audio/mpeg">
+        <audio controls preload="none">
+          <source src="https://archive.org/download/gogol-mertvye-dushi-1959/gogol-mertvye-dushi-1959-01.mp3" type="audio/mpeg">
         </audio>
+        <a class="fallback-link" href="#" target="_blank">⚠️ Не грузится? Открыть файл напрямую</a>
       </div>
     </div>
 
-    <!-- Книга 3: Русские сказки (ПРЯМАЯ ССЫЛКА, HTTPS) -->
-    <div class="book">
-      <div class="cover">🧚</div>
-      <div class="info">
-        <span class="badge">RU • Сказки</span>
-        <div class="title">Русские народные сказки</div>
-        <div class="meta">Сборник • ~6 ч • Читает: Анатолий Иванов</div>
-        <audio controls preload="metadata">
-          <source src="https://ia800607.us.archive.org/3/items/skazki-ivanov/skazki-ivanov-01.mp3" type="audio/mpeg">
-        </audio>
-      </div>
-    </div>
-
-    <!-- Книга 4: Достоевский - Записки из подполья -->
-    <div class="book">
-      <div class="cover">📖</div>
-      <div class="info">
-        <span class="badge">RU • Классика</span>
-        <div class="title">Записки из подполья</div>
-        <div class="meta">Ф.М. Достоевский • ~1 ч 45 мин</div>
-        <audio controls preload="metadata">
-          <source src="https://archive.org/download/zapiski_iz_podpolya_librivox/zapiski_01_dostoevsky_64kb.mp3" type="audio/mpeg">
-        </audio>
-      </div>
-    </div>
-
-    <!-- Книга 5: Шерлок Холмс -->
-    <div class="book">
-      <div class="cover">🎬</div>
-      <div class="info">
-        <span class="badge">RU • Детектив</span>
-        <div class="title">Приключения Шерлока Холмса</div>
-        <div class="meta">А.Конан Дойл • ~8 ч • Читает: Игорь Князев</div>
-        <audio controls preload="metadata">
-          <source src="https://archive.org/download/sherlock_holmes_ru_librivox/sherlock_01_doyle_64kb.mp3" type="audio/mpeg">
-        </audio>
-      </div>
-    </div>
-
-    <p class="note">🔊 Все книги — общественное достояние. Плеер работает напрямую. <br>Сайт: <a href="https://MrRage.ru" style="color:#e63946;text-decoration:none;font-weight:600">MrRage.ru</a></p>
+    <p class="note">🔊 Все файлы — общественное достояние. Если кнопка не реагирует → файл недоступен по прямой ссылке.<br>Сайт: <a href="https://MrRage.ru" style="color:#e63946;text-decoration:none;font-weight:600">MrRage.ru</a></p>
   </div>
 
   <script>
-    // Простое сохранение прогресса (работает даже если браузер строгий)
-    document.addEventListener('DOMContentLoaded', function(){
-      var audios = document.querySelectorAll('audio');
-      audios.forEach(function(audio, idx){
-        var key = 'al_' + idx;
-        try {
-          var saved = localStorage.getItem(key);
-          if(saved) audio.currentTime = parseFloat(saved);
-          audio.addEventListener('timeupdate', function(){
-            localStorage.setItem(key, audio.currentTime);
-          });
-        } catch(e) { /* игнорируем ошибки хранилища */ }
-      });
+    document.querySelectorAll('audio').forEach(audio => {
+      audio.onerror = function() {
+        const link = this.parentElement.querySelector('.fallback-link');
+        if(link) { link.href = this.src; link.style.display = 'block'; }
+      };
     });
   </script>
 </body>
